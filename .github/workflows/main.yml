@@ -16,6 +16,8 @@ jobs:
           node-version: '12.x'
       - name: Install Dependencies
         run: npm install
+      - name: Test Project
+        run: npm run test:e2e
       - name: Build Project
         run: npm run build
       - name: Archive Dist Folder
