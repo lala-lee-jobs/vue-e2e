@@ -31,12 +31,13 @@ jobs:
         with:
           name: cypress-screenshots
           path: /cypress/screenshots
+      - run: mkdir -p cypress/videos
       - name: Store vedios for test run
         uses: actions/upload-artifact@master
         if: always()
         with:
           name: cypress-videos
-          path: /cypress/videos
+          path: cypress/videos
       - name: Build Project
         run: npm run build
       - name: Archive Dist Folder
