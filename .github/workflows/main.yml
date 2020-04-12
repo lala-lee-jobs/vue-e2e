@@ -26,12 +26,14 @@ jobs:
         env:
           CYPRESS_baseurl: http://localhost:8080/
       - name: Store screenshots for test run
+        run: mkdir cypress/screenshots
         uses: actions/upload-artifact@master
         if: failure()
         with:
           name: cypress-screenshots
           path: cypress/screenshots
       - name: Store vedios for test run
+        run: mkdir cypress/videos
         uses: actions/upload-artifact@master
         if: always()
         with:
