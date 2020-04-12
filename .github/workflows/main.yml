@@ -16,6 +16,8 @@ jobs:
           node-version: '12.x'
       - name: Install Dependencies
         run: npm install
+      - name: Mkdir Cypress Result
+        run: mkdir -p cypress/videos
       - name: Cypress run
         uses: cypress-io/github-action@v1
         with:
@@ -25,13 +27,6 @@ jobs:
           spec: 'tests/e2e/**/*'
         env:
           CYPRESS_baseurl: http://localhost:8080/
-      - name: Store screenshots for test run
-        uses: actions/upload-artifact@master
-        if: failure()
-        with:
-          name: cypress-screenshots
-          path: /cypress/screenshots
-      - run: mkdir -p cypress/videos
       - name: Store vedios for test run
         uses: actions/upload-artifact@master
         if: always()
