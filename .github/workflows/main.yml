@@ -25,6 +25,12 @@ jobs:
           spec: 'tests/e2e/**/*'
         env:
           CYPRESS_baseurl: http://localhost:8080/
+      - name: Store screenshots for test run
+        uses: actions/upload-artifact@master
+        if: failure()
+        with:
+          name: cypress-screenshots
+          path: tests/e2e/screenshots
       - name: Store vedios for test run
         uses: actions/upload-artifact@master
         if: always()
