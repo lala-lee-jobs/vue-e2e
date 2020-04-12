@@ -16,10 +16,17 @@ jobs:
           node-version: '12.x'
       - name: Install Dependencies
         run: npm install
+      - name: Cypress run
+        uses: cypress-io/github-action@v1
+        with:
+          start: npm run serve
+          wait-on: http://localhost:8080/
+          config_file: cypress.json
+          spec: 'tests/e2e/**/*'
+        env:
+          CYPRESS_baseurl: http://localhost:8080/
       - name: Build Project
         run: npm run build
-      - name: Test Project
-        run: npm run test:e2e
       - name: Archive Dist Folder
         uses: actions/upload-artifact@master
         with:
