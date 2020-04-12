@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App aaa"/>
+    <HelloWorld msg="Hello world"/>
     <p>Deploy by github actions</p>
   </div>
 </template>
