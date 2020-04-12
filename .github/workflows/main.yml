@@ -16,8 +16,6 @@ jobs:
           node-version: '12.x'
       - name: Install Dependencies
         run: npm install
-      - name: Mkdir Cypress Result
-        run: mkdir -p cypress/videos
       - name: Cypress run
         uses: cypress-io/github-action@v1
         with:
@@ -32,7 +30,7 @@ jobs:
         if: always()
         with:
           name: cypress-videos
-          path: cypress/videos
+          path: tests/e2e/videos
       - name: Build Project
         run: npm run build
       - name: Archive Dist Folder
